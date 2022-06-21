@@ -137,12 +137,11 @@ melt(df) %>% ggplot(aes(variable,value)) +
 
 #### Xử lý giá trị outlier
 ```{r}
-datatrain<-training
 #ph
-Q1 <- quantile(datatrain$ph, .45)
-Q3 <- quantile(datatrain$ph, .55)
-IQR <- IQR(datatrain$ph)
-no_outliers1 <- subset(datatrain, datatrain$ph> (Q1 - 1.5*IQR) & datatrain$ph< (Q3 + 1.5*IQR))
+Q1 <- quantile(df$ph, .45)
+Q3 <- quantile(df$ph, .55)
+IQR <- IQR(df$ph)
+no_outliers1 <- subset(df, df$ph> (Q1 - 1.5*IQR) & df$ph< (Q3 + 1.5*IQR))
 #Hardness
 Q1 <- quantile(no_outliers1$Hardness, .35)
 Q3 <- quantile(no_outliers1$Hardness, .65)
